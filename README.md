@@ -7,3 +7,7 @@ Looking ahead, the project aims to integrate AI-based NLP techniques, multi-lang
 Built with a vision to simplify information and empower users — one summary at a time.
 ## Languages
 HTML , CSS , JAVA SCRIPT
+#Demo Video
+
+https://github.com/user-attachments/assets/701e55a3-6d3d-47f0-8e7c-b620d48e661e
+
