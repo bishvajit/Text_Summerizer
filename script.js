@@ -1,5 +1,5 @@
 const API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
-const API_TOKEN = "Add your on API Key "; 
+const API_TOKEN = "Use your own API Key";
 
 async function summarizeText() {
   const inputText = document.getElementById("inputText").value;
@@ -27,4 +27,30 @@ async function summarizeText() {
   } else {
     summaryDiv.innerText = "No summary generated.";
   }
+}
+
+async function extractAndSummarizePDF() {
+  const fileInput = document.getElementById("pdfFile");
+  const file = fileInput.files[0];
+  if (!file) return alert("Please upload a PDF file.");
+
+  const reader = new FileReader();
+  reader.onload = async function () {
+    const typedarray = new Uint8Array(this.result);
+
+    const pdf = await pdfjsLib.getDocument(typedarray).promise;
+    let fullText = "";
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      const strings = content.items.map(item => item.str);
+      fullText += strings.join(" ") + "\n";
+    }
+
+    document.getElementById("inputText").value = fullText;
+    summarizeText();
+  };
+
+  reader.readAsArrayBuffer(file);
 }
