@@ -1,5 +1,5 @@
 const API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
-const API_TOKEN = "Use your own API Key";
+const API_TOKEN = " Use your own API Key";
 
 async function summarizeText() {
   const inputText = document.getElementById("inputText").value;
