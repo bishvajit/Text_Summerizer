@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
   <title>Text Summarizer</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 </head>
 <body>
   <div class="container">
     <h1>Text Summarizer</h1>
+
     <textarea id="inputText" placeholder="Paste your long text here..."></textarea>
     <button onclick="summarizeText()">Summarize</button>
+
+    <hr style="margin: 20px 0;">
+
+    <input type="file" id="pdfFile" accept="application/pdf">
+    <button onclick="extractAndSummarizePDF()">Upload & Summarize PDF</button>
+
     <h2>Summary:</h2>
     <div id="summary"></div>
   </div>
@@ -17,3 +25,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
